@@ -1,31 +1,57 @@
-# ESTACIONAMENTO ACME API
-Situação de Aprendizagem - Back-End (Node.JS, JavaSript, VsCode, ORM Prisma, Insomnia)
-## Contextualização
-O ESTACIONAMENTO ACME tem atuado em nossa cidade com ótimo atendimento e segurança, é nosso cliente e necessita de um sistema Web para registro dos estacionamentos diários.<br>O P.O. após uma visita ao cliente, elaborou o DER e UML DC(Diagrama de Classes) a seguir e elencou os requisitos funcionais.<br>
-![DER e DC](./docs/der-dc.png)
-## Desafio
-Desenvolver as funcionalidades conforme requisitos
+# Estacionamento ACME API
 
-### Requisitos funcionais
-- [RF001] O sistema deve permitir o CRUD de veículos.
-    - [RF001.1] Os campos cor e ano não são obrigatórios, podem ser nulos.
-    - [RF001.2] A rota **readOne** do **veículo** deve mostrar os dados de um veículo específico e seus **estacionamentos**.
-- [RF002] O sistema deve permitir o CRUD de estadias.
-    - [RF002.1] O sistema deve associar a estadia a um veículo.
-    - [RF002.2] Ao cadastrar uma nova estadia **create** no controller, a data e hora da **entrada** deve ser gerada pelo Banco de Dados @dedault(now()).
-    - [RF002.3] Ao cadastrar uma nova estadia **create** no controller, a **saida**, pode ser nula **"?"** pois será preenchida na rota **update** quando o veículo saír do estacionamento.
-    - [RF002.4] Ao cadastrar uma nova estadia **create** no controller, o **valorTotal**, deve ser nulo **"?"** pois será calculado na rota **update** quando o veículo saír do estacionamento.
-    - [RF002.5] Se ao realizar **update** o campo **saída** for enviado o sistema deve calcular a **valorTotal** com a formula **"valorHora * (saida - entrada)"**.
+## Descrição
+API para gerenciamento de veículos e estadias de um estacionamento, desenvolvida para o cliente **Estacionamento ACME**. A API permite registrar, atualizar e excluir veículos, bem como registrar, atualizar e excluir estadias de veículos no estacionamento.
 
-### Casos de teste (Insomnia)
-- [CT001] Deve ser cadastrado pelo menos 5 veículos.
-    - [CT001.1] Pelo menos dois veículos devem ter ano e cor cadastrados.
-- [CT002] Cadastre, altere e exclua um veículo.
-- [CT003] Cadastre uma estadia para cada veículo.
-    - [CT003.1] Pelo menos dois veículos devem ter duas ou mais Estadias cadastradas.
-- [CT004] Cadastre, altere e exclua uma estadia.
-- [CT005] Altere pelo menos duas estadias preenchendo a **saida** e verificando se calcula o **valorTotal**.
+## Tecnologias Utilizadas
 
-## Tecnologias
+- **Node.js**: Plataforma de execução JavaScript no servidor.
+- **Express**: Framework minimalista para Node.js, utilizado para construção da API.
+- **Prisma ORM**: Ferramenta para interagir com o banco de dados de forma simples e eficiente.
+- **SQLite** (ou PostgreSQL): Banco de dados utilizado para armazenar as informações de veículos e estadias.
+- **Insomnia**: Utilizado para testar as rotas da API.
+- **JavaScript**: Linguagem utilizada para implementação do back-end.
 
-## Passo a Passo de como executar a API
+## Funcionalidades
+
+1. **CRUD de Veículos**
+   - Cadastro de veículos com campos como placa, modelo, cor e ano.
+   - Atualização e exclusão de veículos.
+   - Consulta de veículos específicos, incluindo suas estadias.
+
+2. **CRUD de Estadias**
+   - Registro de entrada de veículos no estacionamento com cálculo automático da hora de entrada.
+   - Atualização de estadias, incluindo a saída do veículo e o cálculo do valor total da estadia.
+   - Exibição das estadias associadas a cada veículo.
+
+## Passo a Passo para Execução
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo/api
+```
+### 2. Instale as Dependências
+
+```
+npm install
+```
+
+### 3. Configure o Banco de Dados
+
+```
+DATABASE_URL="file:./dev.db"
+```
+
+### 4. Rode as Migrações
+
+```
+npx prisma migrate dev --name init
+```
+
+### 5. Inicie a API
+
+```
+npm run dev
+```

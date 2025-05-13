@@ -1,0 +1,68 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-05-13T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_ct001_-_criar_ve\u00edculo_1",
+      "parentId": "__WORKSPACE_ID__",
+      "modified": 0,
+      "created": 0,
+      "url": "http://localhost:3000/veiculos",
+      "name": "CT001 - Criar Ve\u00edculo 1",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"placa\": \"ABC1234\", \"modelo\": \"Uno\", \"cor\": \"Vermelho\", \"ano\": 2010}"
+      },
+      "_type": "request"
+    },
+    {
+      "_id": "req_ct001_-_criar_ve\u00edculo_2",
+      "parentId": "__WORKSPACE_ID__",
+      "modified": 0,
+      "created": 0,
+      "url": "http://localhost:3000/veiculos",
+      "name": "CT001 - Criar Ve\u00edculo 2",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"placa\": \"XYZ5678\", \"modelo\": \"Civic\"}"
+      },
+      "_type": "request"
+    },
+    {
+      "_id": "req_ct003_-_criar_estadia_ve\u00edculo_1",
+      "parentId": "__WORKSPACE_ID__",
+      "modified": 0,
+      "created": 0,
+      "url": "http://localhost:3000/estadias",
+      "name": "CT003 - Criar Estadia Ve\u00edculo 1",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"veiculoId\": 1}"
+      },
+      "_type": "request"
+    },
+    {
+      "_id": "req_ct005_-_atualizar_estadia_com_sa\u00edda",
+      "parentId": "__WORKSPACE_ID__",
+      "modified": 0,
+      "created": 0,
+      "url": "http://localhost:3000/estadias/1",
+      "name": "CT005 - Atualizar Estadia com Sa\u00edda",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\"saida\": \"2025-05-13T14:00:00.000Z\"}"
+      },
+      "_type": "request"
+    }
+  ]
+}
